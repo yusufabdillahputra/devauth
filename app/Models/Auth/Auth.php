@@ -47,7 +47,7 @@ class Auth extends Model
         return [
             'token_type' => 'Bearer',
             'expires_in' => Carbon::createFromTimestamp($payload['exp'])->diffForHumans(),
-            'pernr' => $username,
+            'user' => $username,
             'access_token' => $JWT
         ];
     }

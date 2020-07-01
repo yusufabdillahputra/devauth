@@ -22,8 +22,11 @@ $router->group([
     'prefix' => 'auth',
     'middleware' => 'JSONWebToken'
 ], function () use ($router) {
-    $router->get('/', function () use ($router) {
-        return 'OK Sukses';
-    });
+    $router->get('/', [
+        'uses' => 'Auth\AuthController@index'
+    ]);
+    $router->post('/extend-token', [
+        'uses' => 'Auth\AuthController@extendToken'
+    ]);
 });
 
